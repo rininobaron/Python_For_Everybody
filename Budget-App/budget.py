@@ -30,7 +30,7 @@ class Category:
 
 	def check_funds(self, amount):
 		if amount > self.get_balance():
-			return False3
+			return False
 		else:
 			return True
 
