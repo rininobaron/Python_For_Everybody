@@ -5,12 +5,12 @@ class Category:
 		self.ledger = []
 
 	def deposit(self, amount, description):
-		if description = False:
+		if description == False:
 			description = ""
 		self.ledger.append({"amount": amount, "description": description})
 
 	def withdraw(self, amount, description):
-		if description = False:
+		if description == False:
 			description = ""
 		if self.check_funds(amount):
 			self.ledger.append({"amount": -amount, "description": description})
