@@ -63,4 +63,4 @@ class Category:
 		return line1 + line_descriptions + final_line
 
 
-def create_spend_chart(categories):
+#def create_spend_chart(categories):
