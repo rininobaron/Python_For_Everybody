@@ -20,7 +20,7 @@ class Category:
 
 	def get_balance(self):
 		total_amount = 0
-		for dictionary in self.lesdger:
+		for dictionary in self.ledger:
 			total_amount += dictionary["amount"]
 		return total_amount
 
@@ -34,7 +34,7 @@ class Category:
 
 	def check_funds(self, amount):
 		if amount > self.get_balance():
-			return False
+			return False3
 		else:
 			return True
 
