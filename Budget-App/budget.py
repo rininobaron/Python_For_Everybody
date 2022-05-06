@@ -20,7 +20,7 @@ class Category:
 
 	def get_balance(self):
 		total_amount = 0
-		for dictionary in self.ledger:
+		for dictionary in self.lesdger:
 			total_amount += dictionary["amount"]
 		return total_amount
 
@@ -38,6 +38,29 @@ class Category:
 		else:
 			return True
 
+	def __str__(self):
+		if len(self.name%2) == 0:
+			asterix_per_side = (30 - len(self.name%2))/2
+			line1 = asterix_per_side*'*' + self.name + asterix_per_side*'*'
+		else:
+			asterix_per_side = (30 - len(self.name%2) + 1)/2
+			line1 = (asterix_per_side - 1)*'*' + self.name + asterix_per_side*'*'
+		line1 = line1 + '\n'
+		line_descriptions = ''
+		total = 0
+		for dictionary in self.ledger:
+			if  len(dictionary["description"]) <= 23:
+				spaces = (23 - len(dictionary["description"]))*' '
+				line_descriptions = line_descriptions + spaces
+			else:
+				line_descriptions = line_descriptions + dictionary["description"][:23]
+			if len('%.2f'%(dictionary["amount"])) <= 7:
+				line_descriptions = line_descriptions + (7 - len('%.2f'%(dictionary["amount"])))*' ' + '%.2f'%(dictionary["amount"])
+			else:
+				line_descriptions = line_descriptions + '%.2f'%(dictionary["amount"])[-7:]
+			line_descriptions = line_descriptions + '\n'
+		final_line =  "Total: " + str(self.get_balance())
+		return line1 + line_descriptions + final_line
+
 
 def create_spend_chart(categories):
-
