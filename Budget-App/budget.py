@@ -12,10 +12,7 @@ class Category:
 	def withdraw(self, amount, description):
 		if description = False:
 			description = ""
-		total_amount = 0
-		for dictionary in self.ledger:
-			total_amount += dictionary["amount"]
-		if total_amount >= amount:
+		if self.check_funds(amount):
 			self.ledger.append({"amount": -amount, "description": description})
 			return True
 		else:
@@ -28,10 +25,7 @@ class Category:
 		return total_amount
 
 	def transfer(self, amount, category_object):
-		total_amount = 0
-		for dictionary in self.ledger:
-			total_amount += dictionary["amount"]
-		if total_amount >= amount:
+		if self.check_funds(amount):
 			self.withdraw(amount, "Transfer to " + category_object.name)
 			category_object.deposit(amount, "Transfer from " + self.name)
 			return True
@@ -46,3 +40,4 @@ class Category:
 
 
 def create_spend_chart(categories):
+
