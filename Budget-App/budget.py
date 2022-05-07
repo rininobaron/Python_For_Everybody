@@ -35,7 +35,7 @@ class Category:
 			return True
 
 	def __str__(self):
-		if len(self.name%2) == 0:
+		if (len(self.name)%2) == 0:
 			asterix_per_side = (30 - len(self.name%2))/2
 			line1 = asterix_per_side*'*' + self.name + asterix_per_side*'*'
 		else:
