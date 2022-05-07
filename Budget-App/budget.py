@@ -78,7 +78,7 @@ def create_spend_chart(categories):
 	BUILDING FINAL STRING
 	'''
 	for i in range(11):
-		new_i = 100 - i*10L
+		new_i = 100 - i*10
 		spaces = int(3 - len(str(new_i)))*' ' 
 		LINE = LINE + spaces + str(new_i) + '|' + '\n'
 		for category in categories:
