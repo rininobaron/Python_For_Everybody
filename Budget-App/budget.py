@@ -80,10 +80,11 @@ def create_spend_chart(categories):
 	for i in range(11):
 		new_i = 100 - i*10
 		spaces = int(3 - len(str(new_i)))*' ' 
-		LINE = LINE + spaces + str(new_i) + '|' + '\n'
+		LINE = LINE + spaces + str(new_i) + '|'
 		for category in categories:
 			if new_i <= categories_percentage[category.name]:
-				LINE += 'o'
+				LINE = LINE + 'o'
 			else:
-				LINE += '_' #CHANGE
+				LINE = LINE + '_' #CHANGE
+		LINE = LINE + '\n'
 	return LINE
