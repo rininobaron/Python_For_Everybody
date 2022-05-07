@@ -58,4 +58,32 @@ class Category:
 		return line1 + line_descriptions + final_line
 
 
-#def create_spend_chart(categories):
+def create_spend_chart(categories):
+	LINE = 'Percentage spent by category\n'
+	'''
+	RETRIEVING CATEGORIES AND CALCULATING PERCENTAGES
+	'''
+	categories_percentage = {}
+	for category in categories:
+		categories_percentage[category.name] = category.name
+		name = categories_percentage[category.name]
+		total_amount = 0
+		for dictionary in category.ledger:
+			spent = 0
+			total_amount += dictionary['amount']
+			if dictionary['amount'] < 0:
+				spent += dictionary['amount']
+		categories_percentage[name] = int(round(spent/total_amount, 1)*100)
+	'''
+	BUILDING FINAL STRING
+	'''
+	for i in range(11):
+		new_i = 100 - i*10L
+		spaces = int(3 - len(str(new_i)))*' ' 
+		LINE = LINE + spaces + str(new_i) + '|' + '\n'
+		for category in categories:
+			if new_i <= categories_percentage[category.name]:
+				LINE += 'o'
+			else:
+				LINE += '_' #CHANGE
+	return LINE
