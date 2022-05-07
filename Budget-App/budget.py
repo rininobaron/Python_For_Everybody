@@ -36,10 +36,10 @@ class Category:
 
 	def __str__(self):
 		if (len(self.name)%2) == 0:
-			asterix_per_side = (30 - len(self.name%2))/2
+			asterix_per_side = (30 - len(self.name))/2
 			line1 = asterix_per_side*'*' + self.name + asterix_per_side*'*'
 		else:
-			asterix_per_side = (30 - len(self.name%2) + 1)/2
+			asterix_per_side = (30 - len(self.name) + 1)/2
 			line1 = (asterix_per_side - 1)*'*' + self.name + asterix_per_side*'*'
 		line1 = line1 + '\n'
 		line_descriptions = ''
