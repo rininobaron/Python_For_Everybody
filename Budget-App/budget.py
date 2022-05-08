@@ -59,7 +59,7 @@ class Category:
 
 
 def create_spend_chart(categories):
-	LINE = 'Percentage spent by category\n\n'
+	LINE = 'Percentage spent by category\n'
 	'''
 	RETRIEVING CATEGORIES AND CALCULATING PERCENTAGES
 	'''
@@ -89,8 +89,8 @@ def create_spend_chart(categories):
 				LINE = LINE + 'o  '
 			else:
 				LINE = LINE + '   '
-		LINE = LINE + '\n\n'
-	LINE = LINE + 4*' ' + '-'*int(len(categories)*2 + 1) + '\n\n'
+		LINE = LINE + '\n'
+	LINE = LINE + 4*' ' + '-'*int(len(categories)*3 + 1) + '\n'
 	len_names = []
 	for category in categories:
 		len_names.append(len(category.name))
@@ -105,5 +105,5 @@ def create_spend_chart(categories):
 			if ((i + 1) == last) and ((categories.index(category) + 1) == len(categories)):
 				continue
 			if (categories.index(category) + 1) == len(categories):
-				LINE = LINE + '\n\n'
+				LINE = LINE + '\n'
 	return LINE
