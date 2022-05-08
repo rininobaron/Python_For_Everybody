@@ -86,9 +86,9 @@ def create_spend_chart(categories):
 		LINE = LINE + spaces + str(new_i) + '| '
 		for category in categories:
 			if new_i <= categories_percentage[category.name]:
-				LINE = LINE + 'o '
+				LINE = LINE + 'o  '
 			else:
-				LINE = LINE + '  '
+				LINE = LINE + '   '
 		LINE = LINE + '\n\n'
 	LINE = LINE + 4*' ' + '-'*int(len(categories)*2 + 1) + '\n\n'
 	len_names = []
@@ -99,7 +99,7 @@ def create_spend_chart(categories):
 		LINE = LINE + 5*' '
 		for category in categories:
 			try:
-				LINE = LINE + category.name[i] + ' '
+				LINE = LINE + category.name[i] + '  '
 			except:
 				LINE = LINE + '  '
 			if ((i + 1) == last) and ((categories.index(category) + 1) == len(categories)):
