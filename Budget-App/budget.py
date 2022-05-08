@@ -101,7 +101,7 @@ def create_spend_chart(categories):
 			try:
 				LINE = LINE + category.name[i] + '  '
 			except:
-				LINE = LINE + '  '
+				LINE = LINE + '   '
 			if ((i + 1) == last) and ((categories.index(category) + 1) == len(categories)):
 				continue
 			if (categories.index(category) + 1) == len(categories):
