@@ -1,3 +1,5 @@
+import math
+
 class Category:
 
 	def __init__(self, Name):
@@ -76,7 +78,16 @@ def create_spend_chart(categories):
 		#print(categories_percentage[name])
 	categories_percentage = {}
 	for category_name in categories_spent:
-		categories_percentage[category_name] = int(round(categories_spent[category_name]/total_amount, 1)*100)
+		ratio = categories_spent[category_name]/total_amount
+		ratio_str = str(ratio)
+		ratio_str_list = ratio_str.split('.')
+		ratio_str_final = ratio_str_list[0] + '.' + ratio_str_list[1][0]
+		print(ratio_str_list[1][0])
+		print(ratio_str_list)
+		categories_percentage[category_name] = int(float(ratio_str_final)*100)
+		print(categories_percentage[category_name])
+		print(ratio_str_final)
+		print('hola')
 	'''
 	BUILDING FINAL STRING
 	'''
