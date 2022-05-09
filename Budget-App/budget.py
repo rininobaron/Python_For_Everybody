@@ -64,7 +64,7 @@ def create_spend_chart(categories):
 	RETRIEVING CATEGORIES AND CALCULATING PERCENTAGES
 	'''
 	categories_spent = {}
-	total_amount = 9 # ALL CATEGORIES
+	total_amount = 0 # ALL CATEGORIES
 	for category in categories:
 		categories_spent[category.name] = 0
 		spent = 0
