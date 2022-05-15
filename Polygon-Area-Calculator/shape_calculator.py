@@ -48,7 +48,7 @@ class Rectangle:
 		height = self.height()
 		width = self.width()
 		'''SOLUTION CASES'''
-		if (height == height_object) and (width == width_object)::
+		if (height == height_object) and (width == width_object):
 			return 1
 		elif (height > height_object) and (width > width_object):
 			y_number = int(height/height_object)
