@@ -52,9 +52,9 @@ class Rectangle:
 
 	def __str__(self):
 		if self.height == self.width:
-			return "Square(" + "side="+ str(self.width) + ")" 
+			return "Square(" + "side="+ str(self.width) + ")" # or self.height
 		else:
-			return "Rectangle(" + "width=" + str(self.width) + ", " + "height=" + str(height) + ")"
+			return "Rectangle(" + "width=" + str(self.width) + ", " + "height=" + str(self.height) + ")"
 
 
 class Square(Rectangle):
