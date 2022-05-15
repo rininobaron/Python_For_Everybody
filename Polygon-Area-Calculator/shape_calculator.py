@@ -38,15 +38,14 @@ class Rectangle:
 		#area_objet = shape_objet.get_area()
 		perimeter_objet = shape_objet.get_perimeter()
 		diagonal_objet = shape_objet.get_diagonal()
-		width_object = shape_objet.width()
-		height_object = shape_objet.height()
+		width_object = shape_objet.width
+		height_object = shape_objet.height
 		'''SELF PARAMETERS'''
 		#area = self.get_area()
 		perimeter = self.get_perimeter()
 		diagonal = self.get_diagonal()
-		width = self.width()
-		height = self.height()
-		width = self.width()
+		width = self.width
+		height = self.height
 		'''SOLUTION CASES'''
 		if (height == height_object) and (width == width_object):
 			return 1
