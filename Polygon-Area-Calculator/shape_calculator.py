@@ -64,3 +64,13 @@ class Square(Rectangle):
 	def __init__(self, length):
 		self.width = length
 		self.height = length
+
+	def set_side(self, side):
+		self.width = side
+		self.height = side
+
+	def set_width(self, width):
+		self.width = width
+
+	def set_height(self, height):
+		self.height = height
