@@ -50,6 +50,11 @@ class Rectangle:
 		else:
 			return 0
 
+	def __str__(self):
+		if self.height == self.width:
+			return "Square(" + "side="+ str(self.width) + ")" 
+		else:
+			return "Rectangle(" + "width=" + str(self.width) + ", " + "height=" + str(height) + ")"
 
 
 class Square(Rectangle):
