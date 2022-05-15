@@ -23,13 +23,7 @@ class Rectangle:
 			return "Too big for picture."
 		picture = ''
 		for i in range(self.height):
-			for j in range(self.width):
-				if (i == 0) or (i == (self.height - 1)):
-					picture = picture + "*"
-				elif (j == 0) or (j == self.width - 1):
-					picture = picture + "*"
-				else:
-					picture = picture + " "
+			picture = picture + self.width*"*"
 			picture = picture + '\n'
 		return picture
 
