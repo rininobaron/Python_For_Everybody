@@ -22,16 +22,16 @@ class Rectangle:
 		if (self.width > 50) or (self.height > 50):
 			return "Too big for picture."
 		picture = ''
-    	for i in range(self.height):
-    		for j in range(self.width):
-    			if (i == 0) or (i == (self.height - 1)):
-    				picture = picture + "*"
-    			elif (j == 0) or (j == self.width - 1):
-    				picture = picture + "*"
-    			else:
-    				picture = picture + " "
-    		picture = picture + '\n'
-    	return picture
+		for i in range(self.height):
+			for j in range(self.width):
+				if (i == 0) or (i == (self.height - 1)):
+					picture = picture + "*"
+				elif (j == 0) or (j == self.width - 1):
+					picture = picture + "*"
+				else:
+					picture = picture + " "
+			picture = picture + '\n'
+		return picture
 
     def get_amount_inside(self, shape_objet):
     	'''OBJECT PARAMETERS'''
