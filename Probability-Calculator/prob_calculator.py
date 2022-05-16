@@ -4,5 +4,23 @@ import random
 
 class Hat:
 
+	def __init__(self, **arguments):
+		if not arguments:
+			self.balls = 1 # default
+			self.contents = ['default']
+		else:
+			contents = []
+			balls = 0
+			list(arguments.items())
+			for (key, value) in arguments.items():
+				contents.append(key)
+				values.append(value)
+				balls += value
+			self.contents = contents
+			self.balls = balls
 
-def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
+		print(self.balls)
+		print(self.contents)
+			
+	def draw(self, balls):
+		self.balls = balls
