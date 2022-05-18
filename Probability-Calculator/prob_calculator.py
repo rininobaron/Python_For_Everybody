@@ -10,6 +10,7 @@ class Hat:
 			self.contents = ['default']
 			self.values = [1]
 		else:
+			self.arguments = arguments # Add like attribute in order to use in method 'draw'
 			contents = []
 			balls = 0
 			items = list(arguments.items())
@@ -34,19 +35,37 @@ class Hat:
 			
 	def draw(self, balls_draw=None):
 		balls = self.balls
+		keys = self.keys
 		values = self.values
+		balls_final = self.balls - balls_draw
 		if not balls_draw:
 			return 'No balls to draw'
 		elif balls_draw > balls:
 			return 'balls to draw are more than balls inside the hat'
-		prob = balls_draw/balls
+		#prob = balls_draw/balls
 		values_temp = []
-		for value in self.values:
+		#random values abd tags
+		values_random_temp = []
+		arguments_random = sorted(self.arguments).
+		keys_random = arguments_random.keys()
+		values_random = arguments_random.values()
+		for value in values_random:
 			random_num = random.random()
-			balls -= int(value*prob*random_num)
-			values_temp.append(value - int(value*prob*random_num))
-			print(value, prob*random_num, int(value*prob*random_num))
-		balls_final = self.balls - balls_draw
+			if balls < balls_final:
+				break
+			balls -= int(value*random_num)
+			values_random_temp.append(value - int(value*random_num))
+			print(value, random_num, int(value*random_num))
+		for (key_r, value_r) in zip(keys_random, values_random_temp):
+			for key in keys:
+				if key == key_r:
+					kddjdhkjd
+					kdjkdj
+				values_temp.append
+		kjhjg
+		kljkh
+		lklkjk
+		lkjkj
 		while balls > balls_final:
 			for i in range(len(values_temp)):
 				if balls == balls_final:
