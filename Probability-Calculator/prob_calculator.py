@@ -79,10 +79,25 @@ class Hat:
 				contents.append(tag)
 			print(value_temp, ' new ', key,' tags was appended successfully!', )
 		print('\n' + 'contents: ' + '\n' + str(contents))
+		self.values_temp = values_temp # Add like attrivute in order to use in function 'experiment'
 		self.contents = contents
 		return self.contents
 
+def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
+	print(expected_balls)
+	print(num_balls_drawn)
+	print(num_experiments)
+	print(hat.balls)
+		
+
+
+
+
 # Random Case for Testing
-hat = Hat(red=5, orange=4, black=1, blue=0, pink=2, striped=9)
+hat = Hat(red=5, orange=4, black=1, blue=0, piink=2, striped=9)
 print('balls: ' + str(hat.balls))
 print(hat.draw(9))
+print(experiment(hat=hat, 
+                  expected_balls={"red":2,"green":1}, 
+                  num_balls_drawn=5, 
+                  num_experiments=2000))
