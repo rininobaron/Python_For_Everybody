@@ -46,7 +46,11 @@ class Hat:
 		values_temp = []
 		#random values abd tags
 		values_random_temp = []
-		arguments_random = sorted(self.arguments).
+		arguments_random = sorted(self.arguments)
+		print('hola')
+		print(self.arguments)
+		print(arguments_random)
+		print('')
 		keys_random = arguments_random.keys()
 		values_random = arguments_random.values()
 		for value in values_random:
@@ -56,29 +60,24 @@ class Hat:
 			balls -= int(value*random_num)
 			values_random_temp.append(value - int(value*random_num))
 			print(value, random_num, int(value*random_num))
-		for (key_r, value_r) in zip(keys_random, values_random_temp):
-			for key in keys:
-				if key == key_r:
-					kddjdhkjd
-					kdjkdj
-				values_temp.append
-		kjhjg
-		kljkh
-		lklkjk
-		lkjkj
 		while balls > balls_final:
-			for i in range(len(values_temp)):
+			for i in range(len(values_random_temp)):
 				if balls == balls_final:
 					break
-				if values_temp[i] == 0:
+				if values_random_temp[i] == 0:
 					print('balls_final: ', str(balls_final))
 					print('balls: ', str(balls))
 					continue
-				if values_temp[i] > 0:
+				if values_random_temp[i] > 0:
 					balls -= 1
-					values_temp[i] -= 1
+					values_random_temp[i] -= 1
 					print('balls_final: ', str(balls_final))
 					print('balls: ', str(balls))
+		'''REARRANGE values_temp ACCORDING TO '''
+		for key in keys:
+			for (key_r, value_r) in zip(keys_random, values_random_temp):
+				if key == key_r:
+					values_temp.append(value_r)
 		print('random probability (random number 0 to 1): ' + str(random.random()))
 		print('balls_original: ' + str(self.balls))
 		print('balls_final: ' + str(balls))
@@ -114,7 +113,7 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 
 
 # Random Case for Testing
-hat = Hat(red=5, orange=4, black=1, blue=0, piink=2, striped=9)
+hat = Hat(red=5, orange=4, black=1, blue=0, pink=2, striped=9)
 print('balls: ' + str(hat.balls))
 print(hat.draw(9))
 print(experiment(hat=hat, 
