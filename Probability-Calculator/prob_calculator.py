@@ -13,7 +13,7 @@ class Hat:
 			contents = []
 			balls = 0
 			items = list(arguments.items())
-			self.keys = list(arguments.keys()) # Add like attrivute in order to use method 'draw'
+			self.keys = list(arguments.keys()) # Add like attribute in order to use method 'draw'
 			values = list(arguments.values())
 			#print(contents)
 			counter = 0
@@ -42,9 +42,10 @@ class Hat:
 		prob = balls_draw/balls
 		values_temp = []
 		for value in self.values:
-			balls -= int(value*prob)
-			values_temp.append(value - int(value*prob))
-			print(value, prob, int(value*prob))
+			random_num = random.random()
+			balls -= int(value*prob*random_num)
+			values_temp.append(value - int(value*prob*random_num))
+			print(value, prob*, int(value*prob*random_num))
 		balls_final = self.balls - balls_draw
 		while balls > balls_final:
 			for i in range(len(values_temp)):
@@ -79,7 +80,7 @@ class Hat:
 				contents.append(tag)
 			print(value_temp, ' new ', key,' tags was appended successfully!', )
 		print('\n' + 'contents: ' + '\n' + str(contents))
-		self.values_temp = values_temp # Add like attrivute in order to use in function 'experiment'
+		self.values_temp = values_temp # Add like attribute in order to use in function 'experiment'
 		self.contents = contents
 		return self.contents
 
