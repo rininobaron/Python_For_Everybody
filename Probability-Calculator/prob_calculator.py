@@ -13,7 +13,7 @@ class Hat:
 			contents = []
 			balls = 0
 			items = list(arguments.items())
-			keys = list(arguments.keys())
+			self.keys = list(arguments.keys()) # Add like attrivute in order to use method 'draw'
 			values = list(arguments.values())
 			#print(contents)
 			counter = 0
@@ -55,7 +55,7 @@ class Hat:
 					print('balls: ', str(balls))
 					continue
 				if values_temp[i] > 0:
-					balls -=1
+					balls -= 1
 					values_temp[i] -= 1
 					print('balls_final: ', str(balls_final))
 					print('balls: ', str(balls))
@@ -64,6 +64,23 @@ class Hat:
 		print('balls_final: ' + str(balls))
 		print('values: ' + str(self.values))
 		print('values_temp: ' + str(values_temp))
+		contents = []
+		print()
+		print()
+		print(self.contents)
+		for value, value_temp, key in zip(values, values_temp, self.keys):
+			print(value, value_temp, key)
+			if value_temp == 0:
+				continue
+			string_temp = value_temp*(key+',')
+			print(string_temp[:-1])
+			string_split = string_temp[:-1].split(',')
+			for tag in string_split:
+				contents.append(tag)
+			print(value_temp, ' new ', key,' tags was appended successfully!', )
+		print('\n' + 'contents: ' + '\n' + str(contents))
+		self.contents = contents
+		return self.contents
 
 # Random Case for Testing
 hat = Hat(red=5, orange=4, black=1, blue=0, pink=2, striped=9)
