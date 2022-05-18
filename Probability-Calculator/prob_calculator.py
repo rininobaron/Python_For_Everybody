@@ -45,7 +45,7 @@ class Hat:
 			random_num = random.random()
 			balls -= int(value*prob*random_num)
 			values_temp.append(value - int(value*prob*random_num))
-			print(value, prob*, int(value*prob*random_num))
+			print(value, prob*random_num, int(value*prob*random_num))
 		balls_final = self.balls - balls_draw
 		while balls > balls_final:
 			for i in range(len(values_temp)):
