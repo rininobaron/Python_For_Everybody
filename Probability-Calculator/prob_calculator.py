@@ -107,8 +107,6 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 	print(num_balls_drawn)
 	print(num_experiments)
 	print(hat.balls)
-		
-
 
 
 
