@@ -99,7 +99,11 @@ class Hat:
 				contents.append(tag)
 			print(value_temp, ' new ', key,' tags was appended successfully!')
 		print('\n' + 'contents: ' + '\n' + str(contents))
-		'''UPADATING ATTRIBUTES'''
+		'''UPDATING ATTRIBUTES'''
+		arguments = {}
+		for key, value in zip(keys, values_temp):
+			arguments[key] = value
+		self.arguments = arguments
 		self.balls = balls
 		self.keys = keys
 		self.values = values_temp
@@ -108,12 +112,21 @@ class Hat:
 
 def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 	for i in expected_balls:
-		print(i ,expected_balls[i])
-	print(expected_balls)
-	print(num_balls_drawn)
-	print(num_experiments)
-	print(hat.balls)
-
+		print(i, expected_balls[i])
+	N = num_experiments
+	M = 0
+	for i in range(N):
+		temp = copy(hat)
+		temp.draw(num_balls_drawn)
+		colors = []
+		for color in expected_balls:
+			if (expected_balls[color] == temp.arguments[color]):
+				colors.append(color)
+			else:
+				break
+		if len(colors) == len(list(expected_balls.keys())):
+			M += 1
+	return M/N
 
 
 # Random Case for Testing
