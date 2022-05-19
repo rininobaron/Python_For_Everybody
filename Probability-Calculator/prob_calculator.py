@@ -120,9 +120,10 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 		temp.draw(num_balls_drawn)
 		colors = []
 		for color in expected_balls:
-			if (expected_balls[color] == temp.arguments[color]):
-				colors.append(color)
-			else:
+			try:
+				if expected_balls[color] == temp.arguments[color]:
+					colors.append(color)
+			except:
 				break
 		if len(colors) == len(list(expected_balls.keys())):
 			M += 1
@@ -138,4 +139,4 @@ print()
 print(experiment(hat=hat, 
                   expected_balls={"red":2,"green":1}, 
                   num_balls_drawn=5, 
-                  num_experiments=2000))
+                  num_experiments=8))
