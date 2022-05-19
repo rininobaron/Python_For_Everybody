@@ -41,23 +41,24 @@ class Hat:
 		if not balls_draw:
 			return 'No balls to draw'
 		elif balls_draw > balls:
-			return 'balls to draw are more than balls inside the hat'
+			return self.contents
 		#prob = balls_draw/balls
 		values_temp = []
 		#random values abd tags
 		values_random_temp = []
-		arguments_random = sorted(self.arguments)
+		arguments_random_list = sorted(self.arguments)
 		print('hola')
-		print(self.arguments)
-		print(arguments_random)
-		print('')
+		arguments_random = {}
+		for key in arguments_random_list:
+			arguments_random[key] = self.arguments[key] 
 		keys_random = arguments_random.keys()
 		values_random = arguments_random.values()
 		for value in values_random:
 			random_num = random.random()
-			if balls < balls_final:
-				break
 			balls -= int(value*random_num)
+			if balls < balls_final:
+				balls += int(value*random_num)
+				break
 			values_random_temp.append(value - int(value*random_num))
 			print(value, random_num, int(value*random_num))
 		while balls > balls_final:
@@ -73,7 +74,7 @@ class Hat:
 					values_random_temp[i] -= 1
 					print('balls_final: ', str(balls_final))
 					print('balls: ', str(balls))
-		'''REARRANGE values_temp ACCORDING TO '''
+		'''REARRANGE values_temp ACCORDING TO ORIGINAL values'''
 		for key in keys:
 			for (key_r, value_r) in zip(keys_random, values_random_temp):
 				if key == key_r:
@@ -96,13 +97,18 @@ class Hat:
 			string_split = string_temp[:-1].split(',')
 			for tag in string_split:
 				contents.append(tag)
-			print(value_temp, ' new ', key,' tags was appended successfully!', )
+			print(value_temp, ' new ', key,' tags was appended successfully!')
 		print('\n' + 'contents: ' + '\n' + str(contents))
-		self.values_temp = values_temp # Add like attribute in order to use in function 'experiment'
+		'''UPADATING ATTRIBUTES'''
+		self.balls = balls
+		self.keys = keys
+		self.values = values_temp
 		self.contents = contents
 		return self.contents
 
 def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
+	for i in expected_balls:
+		print(i ,expected_balls[i])
 	print(expected_balls)
 	print(num_balls_drawn)
 	print(num_experiments)
@@ -114,6 +120,8 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 hat = Hat(red=5, orange=4, black=1, blue=0, pink=2, striped=9)
 print('balls: ' + str(hat.balls))
 print(hat.draw(9))
+print()
+print()
 print(experiment(hat=hat, 
                   expected_balls={"red":2,"green":1}, 
                   num_balls_drawn=5, 
