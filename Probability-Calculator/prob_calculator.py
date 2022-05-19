@@ -116,7 +116,7 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 	N = num_experiments
 	M = 0
 	for i in range(N):
-		temp = copy(hat)
+		temp = copy.copy(hat)
 		temp.draw(num_balls_drawn)
 		colors = []
 		for color in expected_balls:
