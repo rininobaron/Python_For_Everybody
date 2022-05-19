@@ -123,6 +123,8 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 			try:
 				if expected_balls[color] == temp.arguments[color]:
 					colors.append(color)
+				else: 
+					break
 			except:
 				break
 		if len(colors) == len(list(expected_balls.keys())):
