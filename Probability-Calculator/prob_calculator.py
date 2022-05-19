@@ -37,11 +37,11 @@ class Hat:
 		balls = self.balls
 		keys = self.keys
 		values = self.values
-		balls_final = self.balls - balls_draw
 		if not balls_draw:
 			return 'No balls to draw'
 		elif balls_draw > balls:
 			return self.contents
+		balls_final = self.balls - balls_draw
 		#prob = balls_draw/balls
 		values_temp = []
 		#random values abd tags
@@ -119,7 +119,7 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 # Random Case for Testing
 hat = Hat(red=5, orange=4, black=1, blue=0, pink=2, striped=9)
 print('balls: ' + str(hat.balls))
-print(hat.draw(9))
+print(hat.draw())
 print()
 print()
 print(experiment(hat=hat, 
