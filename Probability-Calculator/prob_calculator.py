@@ -32,7 +32,7 @@ class Hat:
 			self.values = values
 		print(self.balls)
 		print(self.contents)
-			
+
 	def draw(self, balls_draw=None):
 		balls = self.balls
 		keys = self.keys
@@ -61,19 +61,22 @@ class Hat:
 				break
 			values_random_temp.append(value - int(value*random_num))
 			print(value, random_num, int(value*random_num))
-		while balls > balls_final:
-			for i in range(len(values_random_temp)):
+		if balls <= balls_final:
+			pass
+		elif balls > balls_final:
+			while balls > balls_final:
 				if balls == balls_final:
 					break
-				if values_random_temp[i] == 0:
-					print('balls_final: ', str(balls_final))
-					print('balls: ', str(balls))
-					continue
-				if values_random_temp[i] > 0:
-					balls -= 1
-					values_random_temp[i] -= 1
-					print('balls_final: ', str(balls_final))
-					print('balls: ', str(balls))
+				for i in range(len(values_random_temp)):
+					if values_random_temp[i] == 0:
+						print('balls_final: ', str(balls_final))
+						print('balls: ', str(balls))
+						continue
+					if values_random_temp[i] > 0:
+						balls -= 1
+						values_random_temp[i] -= 1
+						print('balls_final: ', str(balls_final))
+						print('balls: ', str(balls))
 		'''REARRANGE values_temp ACCORDING TO ORIGINAL values'''
 		for key in keys:
 			for (key_r, value_r) in zip(keys_random, values_random_temp):
@@ -139,6 +142,6 @@ print(hat.draw())
 print()
 print()
 print(experiment(hat=hat, 
-                  expected_balls={"red":2,"green":1}, 
+                  expected_balls={"red":2,"orange":1}, 
                   num_balls_drawn=5, 
                   num_experiments=8))
