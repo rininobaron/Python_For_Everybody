@@ -47,7 +47,6 @@ class Hat:
 		#random values abd tags
 		values_random_temp = []
 		arguments_random_list = sorted(self.arguments)
-		print('hola')
 		arguments_random = {}
 		for key in arguments_random_list:
 			arguments_random[key] = self.arguments[key] 
@@ -68,6 +67,8 @@ class Hat:
 				if balls == balls_final:
 					break
 				for i in range(len(values_random_temp)):
+					if balls == balls_final:
+						break
 					if values_random_temp[i] == 0:
 						print('balls_final: ', str(balls_final))
 						print('balls: ', str(balls))
