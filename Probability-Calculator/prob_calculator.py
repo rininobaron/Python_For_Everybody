@@ -52,14 +52,29 @@ class Hat:
 			arguments_random[key] = self.arguments[key] 
 		keys_random = arguments_random.keys()
 		values_random = arguments_random.values()
+		print('value', 'random_num', 'int(value*random_num)')
 		for value in values_random:
+			if value == 0:
+				continue
 			random_num = random.random()
+			if int(value*random_num) > value: # o igual
+				for i in range():
+					kdkdkdjd
+					lldkdkd
 			balls -= int(value*random_num)
 			if balls < balls_final:
 				balls += int(value*random_num)
 				break
 			values_random_temp.append(value - int(value*random_num))
 			print(value, random_num, int(value*random_num))
+		'''WORKING'''
+		if sum(values_random_temp) == balls:
+			pass
+		else:
+			print(sum(values_random_temp))
+			print(balls)
+			return print("ERROR")
+		'''WORKING'''
 		if balls <= balls_final:
 			pass
 		elif balls > balls_final:
