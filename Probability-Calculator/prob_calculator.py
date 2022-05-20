@@ -137,7 +137,7 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 
 
 # Random Case for Testing
-hat = Hat(red=5, orange=4, black=1, blue=0, pink=2, striped=9)
+hat = Hat(red=20, orange=10, black=1, blue=0, pink=2, striped=9)
 print('balls: ' + str(hat.balls))
 print(hat.draw())
 print()
