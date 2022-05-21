@@ -55,29 +55,35 @@ class Hat:
 		print('value', 'random_num', 'int(value*random_num)')
 		for value in values_random:
 			if value == 0:
+				values_random_temp.append(value)
+				print(value, random_num, int(value))
 				continue
 			random_num = random.random()
-			if int(value*random_num) > value: # o igual
-				for i in range():
-					kdkdkdjd
-					lldkdkd
 			balls -= int(value*random_num)
 			if balls < balls_final:
 				balls += int(value*random_num)
-				break
-			values_random_temp.append(value - int(value*random_num))
-			print(value, random_num, int(value*random_num))
+				values_random_temp.append(value)
+				print(value, random_num, int(0))
+			else:
+				values_random_temp.append(value - int(value*random_num))
+				print(value, random_num, int(value*random_num))
+			# elif balls == balls_final:
+			# 	values_random_temp.append(value - int(value*random_num))
+			# 	print(value, random_num, int(0))
+			# else:
+			# 	values_random_temp.append(value - int(value*random_num))
+			# 	print(value, random_num, int(value*random_num))
 		'''WORKING'''
+		if not len(values_random_temp) == len(values):
+			return print('ERROR1')
 		if sum(values_random_temp) == balls:
 			pass
 		else:
-			print(sum(values_random_temp))
-			print(balls)
+			print('sum(values_random_temp): ', sum(values_random_temp))
+			print('balls: ', balls)
 			return print("ERROR")
 		'''WORKING'''
-		if balls <= balls_final:
-			pass
-		elif balls > balls_final:
+		if balls > balls_final:
 			while balls > balls_final:
 				if balls == balls_final:
 					break
@@ -157,7 +163,7 @@ print('balls: ' + str(hat.balls))
 print(hat.draw())
 print()
 print()
-print(experiment(hat=hat, 
-                  expected_balls={"red":2,"orange":1}, 
-                  num_balls_drawn=5, 
-                  num_experiments=8))
+# print(experiment(hat=hat, 
+#                   expected_balls={"red":2,"orange":1}, 
+#                   num_balls_drawn=5, 
+#                   num_experiments=8))
