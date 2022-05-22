@@ -41,7 +41,7 @@ class Hat:
 		arguments_random_list = sorted(self.arguments)
 		arguments_random = {}
 		for key in arguments_random_list:
-			arguments_random[key] = self.arguments[key] 
+			arguments_random[key] = self.arguments [key] 
 		keys_random = arguments_random.keys()
 		values_random = arguments_random.values()
 		for value in values_random:
@@ -94,12 +94,28 @@ class Hat:
 		arguments = {}
 		for key, value in zip(keys, values_temp):
 			arguments[key] = value
+		'''
+		FIXING LOGICAL PROBLEM
+
+		The method returns the contents list, 
+		but the method must return only 
+		a list with the balls draw to the hat
+		'''
+		values_draw = [(i - temp) for i, temp in zip(self.values, values_temp)]
+		contents_draw = []
+		for value_draw, key in zip(values_draw, self.keys):
+			if value_draw == 0:
+				continue
+			string_temp = value_draw*(key+',')
+			string_split = string_temp[:-1].split(',')
+			contents_draw = [tag for tag in string_split]
 		self.arguments = arguments
 		self.balls = balls
 		self.keys = keys
 		self.values = values_temp
 		self.contents = contents
-		return self.contents
+		self.contents_draw = contents_draw
+		return self.contents_draw
 
 def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 	N = num_experiments
