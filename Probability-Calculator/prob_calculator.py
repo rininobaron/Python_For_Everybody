@@ -45,7 +45,7 @@ class Hat:
 			temp = random.choice(tuples_temp)
 			key = temp[0]
 			if arguments_temp[key] > 0:
-				arguments_temp -= 1
+				arguments_temp[key] -= 1
 				counter += 1
 			elif sum(arguments_temp.values()) == 0:
 				break
