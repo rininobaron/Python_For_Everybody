@@ -65,7 +65,7 @@ class Hat:
 		self.keys = list(arguments_temp.keys())
 		self.values = list(arguments_temp.values())
 		contents = []
-		for (key, value) in self.arguments:
+		for (key, value) in list(self.arguments.items()):
 				for i in range(value):
 					contents.append(key)
 		self.contents = contents
