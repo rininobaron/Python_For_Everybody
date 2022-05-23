@@ -31,12 +31,6 @@ class Hat:
 			return 'No balls to draw'
 		elif balls_draw > balls:
 			return self.contents
-		'''
-		FIXING LOGICAL PROBLEM
-
-		The draw method code is incorrect according to requirements
-		'''
-
 		arguments_temp = self.arguments
 		tuples = list(self.arguments.items())
 		tuples_temp = copy.copy(tuples)
@@ -90,15 +84,3 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 		if len(colors) == len(list(expected_balls.keys())):
 			M += 1
 	return M/N
-
-
-# TESTING EXAMPLE
-random.seed(95)
-hat = Hat(blue=4, red=2, green=6)
-probability = experiment(
-    hat=hat,
-    expected_balls={"blue": 2,
-                    "red": 1},
-    num_balls_drawn=4,
-    num_experiments=3000)
-print("Probability:", probability)
