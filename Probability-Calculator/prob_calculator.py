@@ -31,10 +31,11 @@ class Hat:
 			return 'No balls to draw'
 		elif balls_draw > balls:
 			return self.contents
-		arguments_temp = self.arguments
+		arguments_temp = copy.copy(self.arguments)
 		tuples = list(self.arguments.items())
 		tuples_temp = copy.copy(tuples)
 		counter = 0
+		print(arguments_temp)
 		while counter < balls_draw:
 			temp = random.choice(tuples_temp)
 			key = temp[0]
@@ -45,9 +46,13 @@ class Hat:
 				break
 			else:
 				continue
+		print(arguments_temp)
 		contents_draw = []
 		for (key, value_final) in list(arguments_temp.items()):
 			value_draw = self.arguments[key] - value_final
+			print('self.arguments[key]: ', self.arguments[key])
+			print('value_final: ', value_final)
+			print(value_draw)
 			if value_draw == 0:
 				continue
 			string_temp = value_draw*(key+',')
@@ -84,3 +89,9 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 		if len(colors) == len(list(expected_balls.keys())):
 			M += 1
 	return M/N
+
+
+
+hat = Hat(red=5,blue=2)
+actual = hat.draw(2)
+print(actual)
