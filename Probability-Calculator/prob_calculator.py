@@ -52,7 +52,7 @@ class Hat:
 			else:
 				continue
 		contents_draw = []
-		for (value_final, key) in list(arguments_temp.items()):
+		for (key, value_final) in list(arguments_temp.items()):
 			value_draw = self.arguments[key] - value_final
 			if value_draw == 0:
 				continue
