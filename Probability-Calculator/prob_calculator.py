@@ -47,7 +47,8 @@ class Hat:
 			print(sum(arguments_temp.values()))
 			if (len(self.contents) == sum(arguments_temp.values())) and (sum(arguments_temp.values()) > 0):
 				try:
-					temp = random.choice(self.contents)
+					index = random.randint(0, len(self.contents))
+					temp = self.contents[index]
 					print('temp: ',temp)
 				except:
 					temp = False
@@ -73,6 +74,7 @@ class Hat:
 			#if arguments_temp[temp] > 0:
 			# elif sum(arguments_temp.values()) == 0:
 			# 	break
+			# NO LOGIC ERROR
 		#print(arguments_temp)
 		contents_draw = []
 		for (key, value_final) in list(arguments_temp.items()):
