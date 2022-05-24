@@ -35,24 +35,28 @@ class Hat:
 		tuples = list(self.arguments.items())
 		tuples_temp = copy.copy(tuples)
 		counter = 0
-		print(arguments_temp)
+		#print(arguments_temp)
 		while counter < balls_draw:
-			temp = random.choice(tuples_temp)
-			key = temp[0]
-			if arguments_temp[key] > 0:
-				arguments_temp[key] -= 1
+			print(self.contents)
+			if random.choice(self.contents):
+				temp = random.choice(self.contents)
+			else:
+				break
+			print('temp: ',temp)
+			if arguments_temp[temp] > 0:
+				print('len(self.contents):                 ', len(self.contents))
+				print('sum(list(arguments_temp.values())): ', sum(list(arguments_temp.values())))
+				self.contents.remove(temp)
+				print(self.contents)
+				print()
+				arguments_temp[temp] -= 1
 				counter += 1
 			elif sum(arguments_temp.values()) == 0:
 				break
-			else:
-				continue
-		print(arguments_temp)
+		#print(arguments_temp)
 		contents_draw = []
 		for (key, value_final) in list(arguments_temp.items()):
 			value_draw = self.arguments[key] - value_final
-			print('self.arguments[key]: ', self.arguments[key])
-			print('value_final: ', value_final)
-			print(value_draw)
 			if value_draw == 0:
 				continue
 			string_temp = value_draw*(key+',')
@@ -63,11 +67,6 @@ class Hat:
 		self.balls = sum(arguments_temp.values())
 		self.keys = list(arguments_temp.keys())
 		self.values = list(arguments_temp.values())
-		contents = []
-		for (key, value) in list(self.arguments.items()):
-				for i in range(value):
-					contents.append(key)
-		self.contents = contents
 		self.contents_draw = contents_draw
 		return self.contents_draw
 
@@ -89,9 +88,3 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 		if len(colors) == len(list(expected_balls.keys())):
 			M += 1
 	return M/N
-
-
-
-hat = Hat(red=5,blue=2)
-actual = hat.draw(2)
-print(actual)
