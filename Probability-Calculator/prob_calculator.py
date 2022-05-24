@@ -36,23 +36,43 @@ class Hat:
 		tuples_temp = copy.copy(tuples)
 		counter = 0
 		#print(arguments_temp)
+		temp = False
+		hi = 0
 		while counter < balls_draw:
-			print(self.contents)
-			if random.choice(self.contents):
-				temp = random.choice(self.contents)
-			else:
+			print(hi)
+			hi += 1 
+			print('counter: ', counter)
+			print('balls_draw: ', balls_draw)
+			print(len(self.contents))
+			print(sum(arguments_temp.values()))
+			if (len(self.contents) == sum(arguments_temp.values())) and (sum(arguments_temp.values()) > 0):
+				try:
+					temp = random.choice(self.contents)
+					print('temp: ',temp)
+				except:
+					temp = False
+					print(temp)
+					continue
+			elif len(self.contents) == sum(arguments_temp.values()):
 				break
-			print('temp: ',temp)
-			if arguments_temp[temp] > 0:
+			else:
+				print(len(self.contents))
+				print(sum(arguments_temp.values()))
+				raise 'Error2'
+				temp = False
+			if temp:
+				#temp = random.choice(self.contents)
 				print('len(self.contents):                 ', len(self.contents))
 				print('sum(list(arguments_temp.values())): ', sum(list(arguments_temp.values())))
-				self.contents.remove(temp)
+				print(self.contents)
+				(self.contents).remove(temp)
 				print(self.contents)
 				print()
 				arguments_temp[temp] -= 1
 				counter += 1
-			elif sum(arguments_temp.values()) == 0:
-				break
+			#if arguments_temp[temp] > 0:
+			# elif sum(arguments_temp.values()) == 0:
+			# 	break
 		#print(arguments_temp)
 		contents_draw = []
 		for (key, value_final) in list(arguments_temp.items()):
