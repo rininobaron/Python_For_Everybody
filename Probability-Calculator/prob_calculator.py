@@ -38,9 +38,11 @@ class Hat:
 		#print(arguments_temp)
 		temp = False
 		hi = 0
+		print('Free Errors: ',len(self.contents) == sum(arguments_temp.values()))
+		print()
 		while counter < balls_draw:
-			print(hi)
-			hi += 1 
+			if len(self.contents) != (sum(arguments_temp.values()) > 0):
+				raise Exception('Error')
 			print('counter: ', counter)
 			print('balls_draw: ', balls_draw)
 			print(len(self.contents))
@@ -56,11 +58,6 @@ class Hat:
 					continue
 			elif len(self.contents) == sum(arguments_temp.values()):
 				break
-			else:
-				print(len(self.contents))
-				print(sum(arguments_temp.values()))
-				raise 'Error2'
-				temp = False
 			if temp:
 				#temp = random.choice(self.contents)
 				print('len(self.contents):                 ', len(self.contents))
@@ -90,6 +87,8 @@ class Hat:
 		self.keys = list(arguments_temp.keys())
 		self.values = list(arguments_temp.values())
 		self.contents_draw = contents_draw
+		print('FIN draw')
+		print()
 		return self.contents_draw
 
 def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
@@ -97,7 +96,9 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 	M = 0
 	for i in range(N):
 		temp = copy.copy(hat)
+		print(temp.arguments)
 		temp.draw(num_balls_drawn)
+		print(temp.arguments)
 		colors = []
 		for color in expected_balls:
 			try:
