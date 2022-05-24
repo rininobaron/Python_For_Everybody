@@ -29,7 +29,7 @@ class Hat:
 		values = self.values
 		if not balls_draw:
 			return 'No balls to draw'
-		elif balls_draw > balls:
+		if balls_draw > balls:
 			return self.contents
 		arguments_temp = copy.copy(self.arguments)
 		tuples = list(self.arguments.items())
@@ -42,11 +42,12 @@ class Hat:
 		print()
 		iteration = 0
 		while counter < balls_draw:
-			print(counter < balls_draw)
+			print('Condition while: ',counter < balls_draw)
 			print('Free Errors: ',len(self.contents) == sum(arguments_temp.values()))
-			print(iteration)
+			print('iteration: ',iteration)
 			iteration += 1
 			if len(self.contents) != sum(arguments_temp.values()):
+				print('Free Errors: ',len(self.contents) == sum(arguments_temp.values()))
 				raise Exception('Error')
 			print('counter: ', counter)
 			print('balls_draw: ', balls_draw)
@@ -88,7 +89,7 @@ class Hat:
 			for tag in string_split:
 				contents_draw.append(tag)
 		self.arguments = arguments_temp
-		self.balls = sum(arguments_temp.values())
+		self.balls = sum(list(arguments_temp.values()))
 		self.keys = list(arguments_temp.keys())
 		self.values = list(arguments_temp.values())
 		self.contents_draw = contents_draw
