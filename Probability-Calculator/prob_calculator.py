@@ -44,7 +44,7 @@ class Hat:
 		while counter < balls_draw:
 			print(iteration)
 			iteration += 1
-			if len(self.contents) != (sum(arguments_temp.values()) > 0):
+			if len(self.contents) != sum(arguments_temp.values()):
 				raise Exception('Error')
 			print('counter: ', counter)
 			print('balls_draw: ', balls_draw)
