@@ -42,6 +42,8 @@ class Hat:
 		print()
 		iteration = 0
 		while counter < balls_draw:
+			print(counter < balls_draw)
+			print('Free Errors: ',len(self.contents) == sum(arguments_temp.values()))
 			print(iteration)
 			iteration += 1
 			if len(self.contents) != sum(arguments_temp.values()):
