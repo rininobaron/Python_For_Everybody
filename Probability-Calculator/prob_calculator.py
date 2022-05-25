@@ -17,8 +17,11 @@ class Hat:
 			self.keys = list(arguments.keys()) # Add like attribute in order to use method 'draw'
 			values = list(arguments.values())
 			for (key, value) in items:
-				for i in range(value):
-					contents.append(key)
+				if value == 0:
+					continue
+				else:
+					for i in range(value):
+						contents.append(key)
 			self.contents = contents
 			self.balls = sum(values)
 			self.values = values
@@ -38,6 +41,9 @@ class Hat:
 		#print(arguments_temp)
 		temp = False
 		hi = 0
+		print('HI')
+		print(len(self.contents))
+		print(sum(arguments_temp.values()))
 		print('Free Errors: ',len(self.contents) == sum(arguments_temp.values()))
 		print()
 		iteration = 0
@@ -94,7 +100,6 @@ class Hat:
 		self.values = list(arguments_temp.values())
 		self.contents_draw = contents_draw
 		print('FIN draw')
-		print()
 		return self.contents_draw
 
 def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
@@ -102,9 +107,20 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 	M = 0
 	for i in range(N):
 		temp = copy.copy(hat)
+		print("ORIGINAL VALUES")
 		print(temp.arguments)
+		print(temp.balls)
+		print(num_balls_drawn)
 		temp.draw(num_balls_drawn)
+		print("FINAL VALUES")
 		print(temp.arguments)
+		print(temp.balls)
+		print()
+		print()
+		print()
+		print()
+		print()
+		print()
 		colors = []
 		for color in expected_balls:
 			try:
