@@ -17,14 +17,21 @@ class Hat:
 			self.keys = list(arguments.keys()) # Add like attribute in order to use method 'draw'
 			values = list(arguments.values())
 			for (key, value) in items:
+				print((key, value))
 				if value == 0:
 					continue
 				else:
 					for i in range(value):
+						print('NUEVO')
+						print(i)
 						contents.append(key)
+						print('GOOD')
+						print('NUEVO FIN')
 			self.contents = contents
 			self.balls = sum(values)
 			self.values = values
+		print('len(self.contents): ',len(self.contents))
+		print('self.')
 
 	def draw(self, balls_draw=None):
 		balls = self.balls
@@ -35,6 +42,7 @@ class Hat:
 		if balls_draw > balls:
 			return self.contents
 		arguments_temp = copy.copy(self.arguments)
+		print('in draw method len(self.contents): ', len(self.contents))
 		tuples = list(self.arguments.items())
 		tuples_temp = copy.copy(tuples)
 		counter = 0
@@ -42,8 +50,8 @@ class Hat:
 		temp = False
 		hi = 0
 		print('HI')
-		print(len(self.contents))
-		print(sum(arguments_temp.values()))
+		print('len(self.contents): ',len(self.contents))
+		print('sum(arguments_temp.values()): ',sum(arguments_temp.values()))
 		print('Free Errors: ',len(self.contents) == sum(arguments_temp.values()))
 		print()
 		iteration = 0
@@ -61,7 +69,7 @@ class Hat:
 			print(sum(arguments_temp.values()))
 			if (len(self.contents) == sum(arguments_temp.values())) and (sum(arguments_temp.values()) > 0):
 				try:
-					index = random.randint(0, len(self.contents))
+					index = random.randint(0, len(self.contents) - 1)
 					temp = self.contents[index]
 					print('temp: ',temp)
 				except:
@@ -75,15 +83,11 @@ class Hat:
 				print('len(self.contents):                 ', len(self.contents))
 				print('sum(list(arguments_temp.values())): ', sum(list(arguments_temp.values())))
 				print(self.contents)
-				(self.contents).remove(temp)
+				self.contents.remove(temp)
 				print(self.contents)
 				print()
 				arguments_temp[temp] -= 1
 				counter += 1
-			#if arguments_temp[temp] > 0:
-			# elif sum(arguments_temp.values()) == 0:
-			# 	break
-			# NO LOGIC ERROR
 		#print(arguments_temp)
 		contents_draw = []
 		for (key, value_final) in list(arguments_temp.items()):
@@ -106,11 +110,19 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 	N = num_experiments
 	M = 0
 	for i in range(N):
+		print('EXPERIMENT: ',i)
+		print('hat.balls: ',hat.balls)
 		temp = copy.copy(hat)
+		suma=0
+		for j in temp.arguments.values():
+			suma += j
+		print('suma', suma)
+		print('temp.balls: ',temp.balls)
+		print('sum(list(temp.arguments.values())): ', sum(list(temp.arguments.values())))
+		print('len(temp.contents): ',len(temp.contents))
 		print("ORIGINAL VALUES")
-		print(temp.arguments)
-		print(temp.balls)
-		print(num_balls_drawn)
+		print('temp.contents: ',temp.contents)
+		print('num_balls_drawn: ',num_balls_drawn)
 		temp.draw(num_balls_drawn)
 		print("FINAL VALUES")
 		print(temp.arguments)
