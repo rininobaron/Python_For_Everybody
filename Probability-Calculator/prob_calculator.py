@@ -109,7 +109,7 @@ class Hat:
 		self.contents_draw = contents_draw
 		print('FIN draw')
 		self.contents2 = contents2
-		return self.contents_draw
+		return self.contents2
 
 def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 	N = num_experiments
@@ -121,7 +121,7 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 		for j in temp.arguments.values():
 			suma += j
 		temp.draw(num_balls_drawn)
-		if i%100 == 0:
+		if i%10 == 0:
 			print(temp.contents2)
 		colors = []
 		for color in expected_balls:
