@@ -126,7 +126,12 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 		colors = []
 		for color in expected_balls:
 			try:
-				if expected_balls[color] == temp.arguments[color]:
+				#if expected_balls[color] == temp.arguments[color]:
+				color_draw_count = 0
+				for color_draw in temp.contents2:
+					if color_draw == color:
+						color_draw_count += 1 
+				if expected_balls[color] == color_draw_count:
 					colors.append(color)
 				else: 
 					break
