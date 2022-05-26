@@ -42,7 +42,7 @@ class Hat:
 			return 'No balls to draw'
 		if balls_draw > balls:
 			return self.contents
-		arguments_temp = copy.copy(self.arguments)
+		arguments_temp = copy.deepcopy(self.arguments)
 		print('in draw method len(self.contents): ', len(self.contents))
 		tuples = list(self.arguments.items())
 		tuples_temp = copy.copy(tuples)
@@ -131,7 +131,7 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 				for color_draw in temp.contents2:
 					if color_draw == color:
 						color_draw_count += 1 
-				if expected_balls[color] == color_draw_count:
+				if expected_balls[color] <= color_draw_count:
 					colors.append(color)
 				else: 
 					break
