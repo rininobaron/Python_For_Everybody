@@ -74,12 +74,13 @@ class Hat:
 					print('temp: ',temp)
 				except:
 					temp = False
-					print(temp)
+					print('STEP')
 					continue
 			elif len(self.contents) == sum(arguments_temp.values()):
 				break
 			if temp:
 				#temp = random.choice(self.contents)
+				print('TEMP EXISTS IN while')
 				print('len(self.contents):                 ', len(self.contents))
 				print('sum(list(arguments_temp.values())): ', sum(list(arguments_temp.values())))
 				print(self.contents)
@@ -88,7 +89,6 @@ class Hat:
 				print()
 				arguments_temp[temp] -= 1
 				counter += 1
-		#print(arguments_temp)
 		contents_draw = []
 		for (key, value_final) in list(arguments_temp.items()):
 			value_draw = self.arguments[key] - value_final
@@ -111,9 +111,9 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 	M = 0
 	for i in range(N):
 		print('EXPERIMENT: ',i)
-		print('hat.balls: ',hat.balls)
-		temp = copy.copy(hat)
-		suma=0
+		print('hat.contents: ',hat.contents)
+		temp = copy.deepcopy(hat)
+		suma = 0
 		for j in temp.arguments.values():
 			suma += j
 		print('suma', suma)
