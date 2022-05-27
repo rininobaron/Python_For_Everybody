@@ -17,22 +17,15 @@ class Hat:
 			self.keys = list(arguments.keys()) # Add like attribute in order to use method 'draw'
 			values = list(arguments.values())
 			for (key, value) in items:
-				print((key, value))
 				if value == 0:
 					continue
 				else:
 					for i in range(value):
-						print('NUEVO')
-						print(i)
 						contents.append(key)
-						print('GOOD')
-						print('NUEVO FIN')
 			self.contents = contents
 			self.balls = sum(values)
 			self.values = values
 			self.contents2 = []
-		print('len(self.contents): ',len(self.contents))
-		print('self.')
 
 	def draw(self, balls_draw=None):
 		balls = self.balls
@@ -43,38 +36,22 @@ class Hat:
 		if balls_draw > balls:
 			return self.contents
 		arguments_temp = copy.deepcopy(self.arguments)
-		print('in draw method len(self.contents): ', len(self.contents))
 		tuples = list(self.arguments.items())
 		tuples_temp = copy.copy(tuples)
 		counter = 0
-		#print(arguments_temp)
 		temp = False
 		hi = 0
-		print('HI')
-		print('len(self.contents): ',len(self.contents))
-		print('sum(arguments_temp.values()): ',sum(arguments_temp.values()))
-		print('Free Errors: ',len(self.contents) == sum(arguments_temp.values()))
-		print()
 		iteration = 0
 		contents2 = []
 		while counter < balls_draw:
-			print('Condition while: ',counter < balls_draw)
-			print('Free Errors: ',len(self.contents) == sum(arguments_temp.values()))
-			print('iteration: ',iteration)
 			iteration += 1
 			if len(self.contents) != sum(arguments_temp.values()):
-				print('Free Errors: ',len(self.contents) == sum(arguments_temp.values()))
 				raise Exception('Error')
-			print('counter: ', counter)
-			print('balls_draw: ', balls_draw)
-			print(len(self.contents))
-			print(sum(arguments_temp.values()))
 			if (len(self.contents) == sum(arguments_temp.values())) and (sum(arguments_temp.values()) > 0):
 				try:
 					index = random.randint(0, len(self.contents) - 1)
 					temp = self.contents[index]
 					contents2.append(temp)
-					print('temp: ',temp)
 				except Exception as e:
 					temp = False
 					print('PASS')
@@ -83,14 +60,7 @@ class Hat:
 			elif (len(self.contents) == sum(arguments_temp.values())) and (0 == sum(arguments_temp.values())):
 				break
 			if temp:
-				#temp = random.choice(self.contents)
-				print('TEMP EXISTS IN while')
-				print('len(self.contents):                 ', len(self.contents))
-				print('sum(list(arguments_temp.values())): ', sum(list(arguments_temp.values())))
-				print(self.contents)
 				self.contents.remove(temp)
-				print(self.contents)
-				print()
 				arguments_temp[temp] -= 1
 				counter += 1
 		contents_draw = []
@@ -107,7 +77,6 @@ class Hat:
 		self.keys = list(arguments_temp.keys())
 		self.values = list(arguments_temp.values())
 		self.contents_draw = contents_draw
-		print('FIN draw')
 		self.contents2 = contents2
 		return self.contents2
 
@@ -118,7 +87,6 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 		#print(i)
 		temp = copy.deepcopy(hat)
 		balls_drawn = temp.draw(num_balls_drawn)
-		print(temp.contents2)
 		colors = []
 		for color in expected_balls:
 			color_drawn_count = 0
