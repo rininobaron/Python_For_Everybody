@@ -115,28 +115,19 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 	N = num_experiments
 	M = 0
 	for i in range(N):
-		print(i)
+		#print(i)
 		temp = copy.deepcopy(hat)
-		suma = 0
-		for j in temp.arguments.values():
-			suma += j
-		temp.draw(num_balls_drawn)
-		if i%10 == 0:
-			print(temp.contents2)
+		balls_drawn = temp.draw(num_balls_drawn)
+		print(temp.contents2)
 		colors = []
 		for color in expected_balls:
-			try:
-				#if expected_balls[color] == temp.arguments[color]:
-				color_draw_count = 0
-				for color_draw in temp.contents2:
-					if color_draw == color:
-						color_draw_count += 1 
-				if expected_balls[color] <= color_draw_count:
-					colors.append(color)
-				else: 
-					break
-			except:
-				break
+			color_drawn_count = 0
+			for color_drawn in balls_drawn:
+				if color_drawn == color:
+					color_drawn_count += 1 
+			if expected_balls[color] <= color_drawn_count:
+				colors.append(color)
 		if len(colors) == len(list(expected_balls.keys())):
 			M += 1
-	return M/N
+	probability = M/N
+	return probability
